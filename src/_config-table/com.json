@@ -1,0 +1,68 @@
+{
+  "title": "配置表格",
+  "namespace": "mybricks.comlib-template-compute._config_table",
+  "version": "1.0.0",
+  "description": "配置表格",
+  "author": "MyBricks",
+  "author_name": "MyBricks",
+  "icon": "./icon.png",
+  "data": "./data.json",
+  "runtime": "./index.ts",
+  "editors": "./editor.ts",
+  "rtType": "js",
+  "inputs": [
+    {
+      "id": "creator",
+      "title": "开始",
+      "schema": [
+        {
+          "name": "sceneId",
+          "title": "场景ID",
+          "type": "string",
+          "description": "修改该场景（ID）下组件"
+        },
+        {
+          "name": "tableData",
+          "title": "配置表格",
+          "type": "object",
+          "properties": {
+            "columns": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "type": "string",
+                    "description": "标题"
+                  },
+                  "dataIndex": {
+                    "type": "string",
+                    "description": "字段"
+                  },
+                  "width": {
+                    "type": "number",
+                    "description": "组件namespace"
+                  },
+                  "visible": {
+                    "type": "boolean",
+                    "description": "是否显示"
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "id": "onComplete",
+      "title": "完成",
+      "schema": {
+        "type": "string",
+        "description": "场景ID"
+      }
+    }
+  ]
+}

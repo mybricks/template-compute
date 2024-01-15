@@ -1,0 +1,13 @@
+{
+    "namespace": "mybricks.comlib-template-compute",
+    "content": "",
+    "commitInfo": "init",
+    "comAry": [
+      "./src/_config-form/com.json",
+      "./src/_config-table/com.json"
+    ],
+    "componentType": "PC",
+    "userName": "tangxiaoxin",
+    "tags": "react"
+  }
+  
