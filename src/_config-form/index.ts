@@ -1,9 +1,13 @@
 import { mergeWith } from "lodash";
-import { costumier } from '../utils'
-export default ({ env, data, inputs, outputs }) => {
+import { costumier } from "../utils";
+export default ({ env, data, inputs, outputs, onError }) => {
   const next = !env.runtime.debug;
   inputs.creator((value) => {
     const { sceneId, formData } = value;
+    if (!sceneId) {
+      onError("没有场景id");
+      return;
+    }
     if (next && formData) {
       const formSlotId = "content";
       let { items } = formData;
@@ -16,8 +20,8 @@ export default ({ env, data, inputs, outputs }) => {
           return rest;
         });
         form.data = mergeWith(form.data, { ...formData, items }, costumier);
-        outputs.onComplete();
       }
+      outputs.onComplete(sceneId);
     }
   });
 };
