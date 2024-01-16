@@ -1,5 +1,13 @@
+const isObject = (target) => {
+  return Object.prototype.toString.call(target) === "[object Object]";
+};
+
 export function costumier(objValue, srcValue) {
   if (Array.isArray(objValue)) {
-    return objValue.concat(srcValue);
+    objValue.unshift(...srcValue)
+    return objValue;
+  }
+  if (isObject(objValue) && isObject(srcValue)) {
+    return { ...objValue, ...srcValue };
   }
 }
