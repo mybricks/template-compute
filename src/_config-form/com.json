@@ -39,7 +39,7 @@
                     "type": "string",
                     "description": "字段"
                   },
-                  "component": {
+                  "namespace": {
                     "type": "string",
                     "description": "组件namespace"
                   }
