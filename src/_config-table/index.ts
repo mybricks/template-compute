@@ -5,7 +5,7 @@ export default ({ env, data, inputs, outputs, slots }) => {
   inputs.creator((value) => {
     const { sceneId, tableData } = value;
     if (next && tableData) {
-      const table = env.canvas.getCom({ sceneId, comId: data.tableId });
+      const table = env.canvas.getCom({ sceneId, comId: data.table.id });
       let { columns } = tableData;
       columns = (columns || []).map((column) => {
         if (column.component) {

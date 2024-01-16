@@ -7,7 +7,7 @@ export default ({ env, data, inputs, outputs }) => {
     if (next && formData) {
       const formSlotId = "content";
       let { items } = formData;
-      const form = env.canvas.getCom({ sceneId, comId: data.formId });
+      const form = env.canvas.getCom({ sceneId, comId: data.form.id });
       const { slots } = form;
       if (Array.isArray(items)) {
         const slot = slots.find(({ id }) => id === formSlotId);

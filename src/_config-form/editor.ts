@@ -8,10 +8,10 @@ export default {
       type: "sceneComSelector",
       value: {
         get({ data }) {
-          return data.formId ?? "";
+          return data.form ?? "";
         },
         set({ data, setDesc }, form) {
-          data.formId = form.id;
+          data.form = form;
           setDesc(form.title);
         },
       },

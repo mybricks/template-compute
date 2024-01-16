@@ -1,7 +1,7 @@
 {
   "name": "@mybricks/template-compute",
   "description": "MyBricks模板计算组件库",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "index.js",
   "license": "ISC",
   "author": "MyBricks团队",

@@ -8,10 +8,10 @@ export default {
       type: "sceneComSelector",
       value: {
         get({ data }) {
-          return data?.tableId ?? "";
+          return data?.table ?? {};
         },
         set({ data, setDesc }, table) {
-          data.tableId = table.id;
+          data.table = table;
           setDesc(table.title);
         },
       },
