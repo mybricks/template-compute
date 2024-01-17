@@ -1,5 +1,4 @@
-import { mergeWith } from "lodash";
-import { costumier } from "../utils";
+import { merge } from "lodash";
 export default ({ env, data, inputs, outputs, slots, onError }) => {
   const next = !env.runtime.debug;
   inputs.creator((value) => {
@@ -19,7 +18,7 @@ export default ({ env, data, inputs, outputs, slots, onError }) => {
         }
         return column;
       });
-      table.data = mergeWith(table.data, { ...tableData, columns }, costumier);
+      table.data = merge(table.data, { ...tableData, columns });
       outputs.onComplete(sceneId);
     }
   });

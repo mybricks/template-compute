@@ -1,5 +1,4 @@
-import { mergeWith } from "lodash";
-import { costumier } from "../utils";
+import { merge } from "lodash";
 export default ({ env, data, inputs, outputs, onError }) => {
   const next = !env.runtime.debug;
   inputs.creator((value) => {
@@ -19,7 +18,7 @@ export default ({ env, data, inputs, outputs, onError }) => {
           slot.appendChild({ namespace, data });
           return rest;
         });
-        form.data = mergeWith(form.data, { ...formData, items }, costumier);
+        form.data = merge(form.data, { ...formData, items });
       }
       outputs.onComplete(sceneId);
     }
