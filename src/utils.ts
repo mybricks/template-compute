@@ -7,7 +7,4 @@ export function costumier(objValue, srcValue) {
     objValue.unshift(...srcValue)
     return objValue;
   }
-  if (isObject(objValue) && isObject(srcValue)) {
-    return { ...objValue, ...srcValue };
-  }
 }
