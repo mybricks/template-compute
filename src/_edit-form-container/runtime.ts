@@ -33,7 +33,7 @@ export default function ({ env, data, inputs, outputs, onError }) {
         try {
          // 给表单容器的插槽添加组件，同时返回当前组件的信息
         comItem = comForm.slots[0].appendChild({
-          namespace: item.namespace,
+          namespace: item.namespace || 'mybricks.normal-pc.form-text',
         })
         } catch (error) {
           console.log('comItem error', error)
@@ -43,7 +43,7 @@ export default function ({ env, data, inputs, outputs, onError }) {
           id: comItem?.id,
           props: {
             label: item.label,
-            name: item.name
+            name: item.field
           }
         }
       })

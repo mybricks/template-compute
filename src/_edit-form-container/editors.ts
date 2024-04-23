@@ -35,7 +35,7 @@ export default {
           const objectSchema = {
             "type": "object",
             "properties": {
-              "name": { "type": "string" },
+              "field": { "type": "string" },
               "label": { "type": "string" },
               "namespace": { "type": "string" }
             },
