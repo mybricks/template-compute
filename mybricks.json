@@ -6,7 +6,8 @@
     "./src/_config-form/com.json",
     "./src/_config-table/com.json",
     "./src/_config-toolbar/com.json",
-    "./src/_list-form-item/com.json"
+    "./src/_list-form-item/com.json",
+    "./src/_edit-form-container/com.json"
   ],
   "componentType": "PC",
   "userName": "tangxiaoxin",
