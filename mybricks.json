@@ -1,14 +1,14 @@
 {
-    "namespace": "mybricks.comlib-template-compute",
-    "content": "",
-    "commitInfo": "init",
-    "comAry": [
-      "./src/_config-form/com.json",
-      "./src/_config-table/com.json",
-      "./src/_config-toolbar/com.json"
-    ],
-    "componentType": "PC",
-    "userName": "tangxiaoxin",
-    "tags": "react"
-  }
-  
+  "namespace": "mybricks.comlib-template-compute",
+  "content": "",
+  "commitInfo": "init",
+  "comAry": [
+    "./src/_config-form/com.json",
+    "./src/_config-table/com.json",
+    "./src/_config-toolbar/com.json",
+    "./src/_list-form-item/com.json"
+  ],
+  "componentType": "PC",
+  "userName": "tangxiaoxin",
+  "tags": "react"
+}
