@@ -14,32 +14,17 @@
     {
       "id": "store",
       "title": "状态/行为",
-      "type": "object",
-      "properties": {
-        "data": {
-          "type": "object",
-          "description": "组件数据源"
-        },
-        "append": {
-          "type": "array",
-          "items": {
+      "schema": {
+        "type": "object",
+        "properties": {
+          "data": {
             "type": "object",
             "properties": {
-              "slotId": {
-                "type": "string",
-                "description": "插槽ID"
-              },
-              "namesapce": {
-                "type": "string",
-                "description": "组件namesapce"
-              },
-              "data": {
-                "type": "object",
-                "description": "组件数据源"
-              }
+              "name": { "type": "string" },
+              "label": { "type": "string" },
+              "namespace": { "type": "string" }
             }
-          },
-          "description": "添加组件"
+          }
         }
       }
     }

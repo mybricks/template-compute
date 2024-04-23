@@ -1,5 +1,6 @@
 {
   "comDef": {
     "id": ""
-  }
+  },
+  "enableArray": false
 }

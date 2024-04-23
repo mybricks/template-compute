@@ -1,21 +1,19 @@
-import { merge } from 'lodash'
+export default function ({ env, data, inputs, outputs, onError }) {
 
-export default function ({ env, data, inputs, outputs }) {
   // TODO:
-  const next = !env.runtime.debug //  
+  const next = !env.runtime.debug // !env.runtime.debug // !env.runtime.debug // !env.runtime.debug //  
   inputs['store']((store) => {
     
     if (next) {
-      console.log("编辑表单容器组件: ---", data.comDef, store, store?.data)
 
       /**
-       * comData 数据源
+       * data 数据源
        * append 添加组件
        *  - slotId 向该插槽添加组件
        *  - namesapce 组件命名空间
        *  - data 组件数据源
        */
-      const { data: comData } = store
+      const { data: mayBeListData } = store
 
       let comForm
       try {
@@ -24,10 +22,12 @@ export default function ({ env, data, inputs, outputs }) {
       } catch (error) {
       }
 
-      console.log('comForm --- ', comForm, store?.formItems, comData)
-      // slot.get('content').addCom(namespace, false, { deletable: true, movable: true });
       // TODO: 表单配置字段、表单namespace字段
-      const formItems = store
+      const formItems = Array.isArray(mayBeListData) ? mayBeListData : [mayBeListData]
+      if(formItems.some(ite => !ite.namesapce)) {
+        onError("组件namespace必填");
+        return
+      }
       const newItems = formItems.map((item) => {
         let comItem
         try {
@@ -35,10 +35,8 @@ export default function ({ env, data, inputs, outputs }) {
         comItem = comForm.slots[0].appendChild({
           namespace: item.namespace,
         })
-        console.log('comItem', comItem)
         } catch (error) {
           console.log('comItem error', error)
-
         }
         return {
           ...comItem,
@@ -49,20 +47,15 @@ export default function ({ env, data, inputs, outputs }) {
           }
         }
       })
-       // 修改模板页面中的表单数据， TODO：是否追加到form items里面，还是直接替换拿不到添加
-      comForm.data.items = newItems.map((formItem) => {
-        const configItem = comForm.data.items.find((item) => item.id === formItem.id)
-        const { props, ...restData } = formItem
+      // 修改模板页面中的表单数据， TODO：是否追加到form items里面，还是直接替换拿不到添加
+      comForm.data.items = comForm.data.items.map((formItem) => {
+        const configItem = newItems.find((item) => item.id === formItem.id)
+  
         return {
-          ...(configItem || {}),
-          ...props,
-          ...restData,
-
+          ...formItem,
+          ...configItem?.props,
         }
       })
-
-      console.log('finish--- ', comForm.data.items )
-      // comForm.data = merge(comForm.data, comData)
       outputs['finish']()
     }
   })
