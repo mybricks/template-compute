@@ -24,10 +24,10 @@ export default function ({ env, data, inputs, outputs, onError }) {
 
       // TODO: 表单配置字段、表单namespace字段
       const formItems = Array.isArray(mayBeListData) ? mayBeListData : [mayBeListData]
-      if(formItems.some(ite => !ite.namesapce)) {
-        onError("组件namespace必填");
-        return
-      }
+      // if(formItems.some(ite => !ite.namesapce)) {
+      //   onError("组件namespace必填");
+      //   return
+      // }
       const newItems = formItems.map((item) => {
         let comItem
         try {
