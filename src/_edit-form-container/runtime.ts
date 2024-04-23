@@ -1,9 +1,9 @@
 export default function ({ env, data, inputs, outputs, onError }) {
 
   // TODO:
-  const next = !env.runtime.debug // !env.runtime.debug // !env.runtime.debug // !env.runtime.debug //  
+  const next = !!env.runtime // !env.runtime.debug // !env.runtime.debug // !env.runtime.debug //  
   inputs['store']((store) => {
-    
+
     if (next) {
 
       /**
@@ -17,7 +17,7 @@ export default function ({ env, data, inputs, outputs, onError }) {
 
       let comForm
       try {
-       comForm = env.command.getCom({ sceneId: data.comDef.sceneId, comId: data.comDef.id })
+        comForm = env.command.getCom({ sceneId: data.comDef.sceneId, comId: data.comDef.id })
 
       } catch (error) {
       }
@@ -31,10 +31,10 @@ export default function ({ env, data, inputs, outputs, onError }) {
       const newItems = formItems.map((item) => {
         let comItem
         try {
-         // 给表单容器的插槽添加组件，同时返回当前组件的信息
-        comItem = comForm.slots[0].appendChild({
-          namespace: item.namespace || 'mybricks.normal-pc.form-text',
-        })
+          // 给表单容器的插槽添加组件，同时返回当前组件的信息
+          comItem = comForm.slots[0].appendChild({
+            namespace: item.namespace || 'mybricks.normal-pc.form-text',
+          })
         } catch (error) {
           console.log('comItem error', error)
         }
@@ -50,7 +50,7 @@ export default function ({ env, data, inputs, outputs, onError }) {
       // 修改模板页面中的表单数据， TODO：是否追加到form items里面，还是直接替换拿不到添加
       comForm.data.items = comForm.data.items.map((formItem) => {
         const configItem = newItems.find((item) => item.id === formItem.id)
-  
+
         return {
           ...formItem,
           ...configItem?.props,
