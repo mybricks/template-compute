@@ -2,7 +2,7 @@
   "title": "获取表单项列表",
   "namespace": "mybricks.comlib-template-compute._list-form-item",
   "version": "1.0.0",
-  "description": "输出表单项信息列表",
+  "description": "输出所有可用的表单项信息列表",
   "author": "MyBricks",
   "author_name": "MyBricks",
   "icon": "./icon.png",

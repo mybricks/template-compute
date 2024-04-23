@@ -20,7 +20,8 @@ export default {
             label: item.title,
             value: item.namespace
           }))
-        }
+        },
+
       },
       value: {
         get({ data }) {
