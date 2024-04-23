@@ -1,7 +1,7 @@
 {
   "title": "配置表格",
   "namespace": "mybricks.comlib-template-compute._config_table",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "配置表格",
   "author": "MyBricks",
   "author_name": "MyBricks",
@@ -12,47 +12,33 @@
   "rtType": "js",
   "inputs": [
     {
-      "id": "creator",
-      "title": "开始",
-      "schema": [
-        {
-          "name": "sceneId",
-          "title": "场景ID",
-          "type": "string",
-          "description": "修改该场景（ID）下组件"
-        },
-        {
-          "name": "tableData",
-          "title": "配置表格",
+      "id": "setColumn",
+      "title": "列配置",
+      "schema": {
+        "type": "array",
+        "description": "列配置,可以整体输入表格数据、列前添加、列后添加",
+        "items": {
           "type": "object",
           "properties": {
-            "columns": {
-              "type": "array",
-              "items": {
-                "type": "object",
-                "properties": {
-                  "title": {
-                    "type": "string",
-                    "description": "标题"
-                  },
-                  "dataIndex": {
-                    "type": "string",
-                    "description": "字段"
-                  },
-                  "width": {
-                    "type": "number",
-                    "description": "组件namespace"
-                  },
-                  "visible": {
-                    "type": "boolean",
-                    "description": "是否显示"
-                  }
-                }
-              }
+            "title": {
+              "type": "string",
+              "description": "标题"
+            },
+            "dataIndex": {
+              "type": "string",
+              "description": "字段"
+            },
+            "width": {
+              "type": "number",
+              "description": "组件namespace"
+            },
+            "visible": {
+              "type": "boolean",
+              "description": "是否显示"
             }
           }
         }
-      ]
+      }
     }
   ],
   "outputs": [
