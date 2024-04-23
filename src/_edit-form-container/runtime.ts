@@ -2,8 +2,7 @@ import { merge } from 'lodash'
 
 export default function ({ env, data, inputs, outputs }) {
   // TODO:
-  const next = true //  !env.runtime.debug
-
+  const next = !env.runtime.debug //  
   inputs['store']((store) => {
     
     if (next) {
@@ -28,7 +27,7 @@ export default function ({ env, data, inputs, outputs }) {
       console.log('comForm --- ', comForm, store?.formItems, comData)
       // slot.get('content').addCom(namespace, false, { deletable: true, movable: true });
       // TODO: 表单配置字段、表单namespace字段
-      const formItems = store?.formItems || store
+      const formItems = store
       const newItems = formItems.map((item) => {
         let comItem
         try {
@@ -42,31 +41,27 @@ export default function ({ env, data, inputs, outputs }) {
 
         }
         return {
-          // id: comItem.id,
+          ...comItem,
+          id: comItem?.id,
           props: {
             label: item.label,
-            name: item.name,
-          },
+            name: item.name
+          }
         }
       })
-       // 修改模板页面中的表单数据， TODO：拿不到添加
+       // 修改模板页面中的表单数据， TODO：是否追加到form items里面，还是直接替换拿不到添加
       comForm.data.items = newItems.map((formItem) => {
         const configItem = comForm.data.items.find((item) => item.id === formItem.id)
-
+        const { props, ...restData } = formItem
         return {
-          ...formItem,
-          ...configItem?.props,
+          ...(configItem || {}),
+          ...props,
+          ...restData,
+
         }
       })
-      // comForm.data.items = comForm.data.items.map((formItem) => {
-      //   const configItem = newItems.find((item) => item.id === formItem.id)
 
-      //   return {
-      //     ...formItem,
-      //     ...configItem?.props,
-      //   }
-      // })
-      console.log('finish--- ')
+      console.log('finish--- ', comForm.data.items )
       // comForm.data = merge(comForm.data, comData)
       outputs['finish']()
     }

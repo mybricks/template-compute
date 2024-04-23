@@ -22,18 +22,5 @@ export default {
         }
       }
     },
-    {
-      title: '表单数据字段field',
-      type: 'text',
-      description: '以这个field去读输入流的值',
-      value: {
-        get({ data }) {
-          return data.formItemsField;
-        },
-        set({ data }, value: string) {
-          data.formItemsField = value;
-        }
-      }
-    },
   ]
 }
