@@ -39,9 +39,6 @@ export default {
     {
       title: '列操作',
       type: 'Select',
-      // ifVisible({ data }) {
-      //   return data.isEditable;
-      // },
       options: [
         { label: '设置列', value: 'setColumn' },
         { label: '列前添加列', value: 'addBeforeColumn' },
@@ -56,18 +53,36 @@ export default {
         }
       }
     },
-    // {
-    //   title: "分页配置",
-    //   type: "switch",
-    //   description: "开关开启后，增加对应列配置",
-    //   value: {
-    //     get({ data }) {
-    //       return data.isPagination || false;
-    //     },
-    //     set({ data, setDesc, input }, value: boolean) {
-    //       data.isPagination = value;
-    //     },
-    //   }
-    // },
+    {
+      title: "分页配置",
+      type: "switch",
+      description: "开关开启后，增加对应分页配置",
+      value: {
+        get({ data }) {
+          return data.isPagination || false;
+        },
+        set({ data, setDesc, input }, value: boolean) {
+          data.isPagination = value;
+          if(value){
+            input.add("setPagination","设置分页",{
+              type: "object",
+              properties: {
+                total: {
+                  type: "number",
+                },
+                current: {
+                  type: "number"
+                },
+                defaultPageSize: {
+                  type: "number"
+                }
+              }
+            })
+          }else{
+            input.remove("setPagination")
+          }
+        },
+      }
+    },
   ],
 };

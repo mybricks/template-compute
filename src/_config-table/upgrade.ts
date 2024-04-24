@@ -36,5 +36,12 @@ export default function ({ input, output, data }): boolean {
     });
   }
 
+  /**
+   * @description v1.0.1->1.0.3 , 增加分页配置
+   */
+  if (typeof data.isPagination === 'undefined') {
+    data.isPagination = false;
+  }
+  
   return true;
 }

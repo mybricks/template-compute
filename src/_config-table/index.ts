@@ -68,4 +68,13 @@ export default ({ env, data, inputs, outputs, slots, onError }) => {
       }
     }
   })
+
+  //设置分页配置
+  inputs["setPagination"]((ds) => {
+    if(next && ds && data.isPagination){
+      const table = env.command.getCom({ sceneId: data.comDef.sceneId, comId: data.comDef.id });
+      table.data = merge(table.data, {usePagination: true, paginationConfig: ds});
+      outputs.onComplete();
+    }
+  })
 }
