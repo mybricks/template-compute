@@ -12,8 +12,8 @@ export interface column {
 }
 
 export default ({ env, data, inputs, outputs, slots, onError }) => {
-  //const next = !env.runtime.debug;
-  const next = true;
+  const next = !env.runtime.debug;
+  //const next = true;
   // inputs.creator((value) => {
   //   const { sceneId, tableData } = value;
   //   if (!sceneId) {
