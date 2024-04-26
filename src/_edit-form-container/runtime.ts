@@ -24,7 +24,7 @@ export default function ({ env, data, inputs, outputs, onError }) {
 
       // TODO: 表单配置字段、表单namespace字段
       const formItems = Array.isArray(mayBeListData) ? mayBeListData : [mayBeListData]
-      // if(formItems.some(ite => !ite.namesapce)) {
+      // if(formItems.some(ite => !ite.namespace)) {
       //   onError("组件namespace必填");
       //   return
       // }
