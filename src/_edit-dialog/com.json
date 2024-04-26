@@ -14,37 +14,27 @@
     {
       "id": "store",
       "title": "状态/行为",
-      "schema": [
-        {
-          "title": "行为",
-          "name": "action",
-          "type": "any"
-        },
-        {
-          "name": "formData",
-          "title": "配置对话框内容",
-          "type": "object",
-          "properties": {
-            "items": {
-              "type": "array",
-              "items": {
-                "type": "object",
-                "properties": {
-                  "name": {
-                    "type": "string",
-                    "description": "字段"
-                  },
-                  "namespace": {
-                    "type": "string",
-                    "description": "组件namespace"
-                  }
-                }
+      "schema": {
+        "type": "object",
+        "properties": {
+          "formData": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "字段"
+              },
+              "namespace": {
+                "type": "string",
+                "description": "组件namespace"
               }
             }
           }
+          }
         }
-      ]
-
+      }
     }
   ],
   "outputs": [
