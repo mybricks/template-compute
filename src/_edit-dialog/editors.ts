@@ -26,7 +26,6 @@ export default {
           return data.comDef
         },
         set({ data, setDesc }, comDef) {
-          console.log('选择组件', comDef)
           data.comDef = comDef
           setDesc(comDef.title)
         }
@@ -63,34 +62,60 @@ export default {
       }
     },
     {
-      title: '动态配置对话框内容',
+      title: '静态配置对话框内容',
+      description: '若和动态输入中的数据同时存在，以动态输入里面要添加的组件内容为准',
       type: 'Switch',
       value: {
         get({ data }) {
-          return data.useDynamicData;
+          return data.useStaticData;
         },
         set({ data }, value: boolean) {
-          data.useDynamicData = value;
+          data.useStaticData = value;
         }
       }
     },
-    // {
-    //   title: '对话框内添加组件',
-    //   type: 'comSelector',
-    //   options: {
-    //     rtType: 'ui'
-    //   },
-    //   value: {
-    //     set({ data, setDesc }, comDef) {
-    //       console.log('select --- ', comDef)
-    //       if(data.comList?.length) {
-    //         data.comList.push(comDef)
-    //       }else {
-    //         data.comList = [comDef]
-    //       }
-    //     }
-    //   }
-    // },
+    {
+      title: '添加组件',
+      type: 'comSelector',
+      ifVisible({ data }) {
+        return data.useStaticData;
+      },
+      options: {
+        rtType: 'ui',
+        type: 'add'
+      },
+      value: {
+        set({ data, setDesc }, comDef) {
+          if(data.comList?.length) {
+            data.comList.push(comDef)
+          }else {
+            data.comList = [comDef]
+          }
+        }
+      }
+    },
+    {
+      title: '',
+      type: 'array',
+      ifVisible({ data }) {
+        return data.useStaticData
+      },
+      options: {
+        editable: false,
+        addable: false,
+        getTitle: (item) => {
+          return item.title;
+        },
+      },
+      value: {
+        get({ data }) {
+          return data.comList;
+        },
+        set({ data, }, options: Option[]) {
+          data.comList = options;
+        }
+      }
+    },
     {
       title: '底部操作区域显示',
       description: '若选择不显示，整个操作栏及内部新增的操作隐藏',
