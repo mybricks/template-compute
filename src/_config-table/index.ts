@@ -12,7 +12,7 @@ export interface column {
 }
 
 export default ({ env, data, inputs, outputs, slots, onError }) => {
-  const next = !env.runtime.debug;
+  const next = env.runtime;
   //const next = true;
   // inputs.creator((value) => {
   //   const { sceneId, tableData } = value;
@@ -38,10 +38,10 @@ export default ({ env, data, inputs, outputs, slots, onError }) => {
 
   // 设置数据源
   inputs["setColumn"]((ds) => {
-    if(next && ds){
+    if (next && ds) {
       const table = env.command.getCom({ sceneId: data.comDef.sceneId, comId: data.comDef.id })
 
-      let columns  = ds;
+      let columns = ds;
       columns = (columns || []).map((column) => {
         if (column.component) {
           //列插槽，需要slots添加插槽能力
@@ -49,21 +49,21 @@ export default ({ env, data, inputs, outputs, slots, onError }) => {
           column.contentType = "text";
         }
 
-        if(column.visible === undefined){
+        if (column.visible === undefined) {
           column.visible = true;
         }
         return column;
       });
 
-      if(data.operationType === "setColumn"){
-        table.data = merge(table.data, {columns: columns});
+      if (data.operationType === "setColumn") {
+        table.data = merge(table.data, { columns: columns });
         outputs.onComplete();
-      }else if(data.operationType === "addBeforeColumn"){
+      } else if (data.operationType === "addBeforeColumn") {
         let newColumns = [...columns, ...table.data.columns];
-        table.data.columns =  newColumns;
+        table.data.columns = newColumns;
         outputs.onComplete();
-      }else if(data.operationType === "addAfterColumn"){
-        table.data = merge(table.data, {columns: [...table.data.columns, ...columns]});
+      } else if (data.operationType === "addAfterColumn") {
+        table.data = merge(table.data, { columns: [...table.data.columns, ...columns] });
         outputs.onComplete();
       }
     }
@@ -71,9 +71,9 @@ export default ({ env, data, inputs, outputs, slots, onError }) => {
 
   //设置分页配置
   inputs["setPagination"]((ds) => {
-    if(next && ds && data.isPagination){
+    if (next && ds && data.isPagination) {
       const table = env.command.getCom({ sceneId: data.comDef.sceneId, comId: data.comDef.id });
-      table.data = merge(table.data, {usePagination: true, paginationConfig: ds});
+      table.data = merge(table.data, { usePagination: true, paginationConfig: ds });
       outputs.onComplete();
     }
   })

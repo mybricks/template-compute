@@ -1,8 +1,8 @@
 export const originformItemList = [
-    {
-        "title": "表单容器",
-        "namespace": "mybricks.normal-pc.form-container"
-    },
+    // {
+    //     "title": "表单容器",
+    //     "namespace": "mybricks.normal-pc.form-container"
+    // },
     {
         "title": "自定义内容项",
         "namespace": "mybricks.normal-pc.form-addition-container"

@@ -2,6 +2,7 @@
   "title": "配置表单",
   "namespace": "mybricks.comlib-template-compute._config_form",
   "version": "1.0.1",
+  "visibility": false,
   "description": "配置表单",
   "author": "MyBricks",
   "author_name": "MyBricks",

@@ -1,7 +1,7 @@
 {
   "title": "获取表单项列表",
   "namespace": "mybricks.comlib-template-compute._list-form-item",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "输出所有可用的表单项信息列表",
   "author": "MyBricks",
   "author_name": "MyBricks",
@@ -9,6 +9,7 @@
   "data": "./data.json",
   "runtime": "./index.ts",
   "editors": "./editor.ts",
+  "upgrade": "./upgrade.ts",
   "rtType": "js-autorun",
   "inputs": [
     {
