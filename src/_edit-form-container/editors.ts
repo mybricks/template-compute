@@ -32,7 +32,6 @@ export default {
         },
         set({ data, inputs}, value) {
           data.enableArray = value
-          console.log('enableArray',value)
           const i = inputs.get('store')
           const objectSchema = formItemPropsSchema
       

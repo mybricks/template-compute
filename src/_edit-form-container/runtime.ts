@@ -44,8 +44,9 @@ export default function ({ env, data, inputs, outputs, onError }) {
           ...comItem,
           id: comItem?.id,
           props: {
-            label: item.label,
-            name: item.field,
+            // label: item.label,
+            // name: item.field,
+            disabled: item.disabled,
           }
         }
       })
@@ -55,7 +56,7 @@ export default function ({ env, data, inputs, outputs, onError }) {
         return {
           ...formItem,
           ...configItem?.data,
-        }
+        } 
       })
       outputs['finish']()
     }
