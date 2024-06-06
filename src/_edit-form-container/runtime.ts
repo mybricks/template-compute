@@ -2,7 +2,7 @@ import omit from 'lodash/omit'
 export default function ({ env, data, inputs, outputs, onError }) {
 
   // TODO:
-  const next =  !!env.runtime // !env.runtime.debug // !env.runtime.debug // !env.runtime.debug //  
+  const next = !!env.runtime // !env.runtime.debug // !env.runtime.debug // !env.runtime.debug //  
   inputs['store']((store) => {
 
     if (next) {
@@ -40,14 +40,12 @@ export default function ({ env, data, inputs, outputs, onError }) {
 
         } catch (error) {
         }
-        console.log('item ==== ', item)
         return {
           ...comItem,
           id: comItem?.id,
           props: {
             label: item.label,
             name: item.field,
-            disabled: item.disabled
           }
         }
       })
@@ -57,7 +55,6 @@ export default function ({ env, data, inputs, outputs, onError }) {
         return {
           ...formItem,
           ...configItem?.data,
-
         }
       })
       outputs['finish']()
