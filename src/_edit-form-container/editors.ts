@@ -1,3 +1,5 @@
+import { formItemPropsSchema } from "./constants";
+
 export default {
   '@init'({ setDesc }) {
     setDesc("未选择组件")
@@ -32,14 +34,7 @@ export default {
           data.enableArray = value
           console.log('enableArray',value)
           const i = inputs.get('store')
-          const objectSchema = {
-            "type": "object",
-            "properties": {
-              "field": { "type": "string" },
-              "label": { "type": "string" },
-              "namespace": { "type": "string" }
-            },
-          }
+          const objectSchema = formItemPropsSchema
       
           if(value) {
             i.setSchema({
