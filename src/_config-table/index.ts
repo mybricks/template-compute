@@ -40,7 +40,6 @@ export default ({ env, data, inputs, outputs, slots, onError }) => {
   inputs["setColumn"]((ds) => {
     if (next && ds) {
       const table = env.command.getCom({ sceneId: data.comDef.sceneId, comId: data.comDef.id })
-
       let columns = ds;
       columns = (columns || []).map((column) => {
         if (column.component) {

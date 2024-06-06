@@ -4,29 +4,31 @@ export const originformItemList = [
     //     "namespace": "mybricks.normal-pc.form-container"
     // },
     {
-        "title": "自定义内容项",
-        "namespace": "mybricks.normal-pc.form-addition-container"
-    },
-    {
-        "title": "动态表单项",
-        "namespace": "mybricks.normal-pc.form-list"
-    },
-    {
-        "title": "自定义表单项",
-        "namespace": "mybricks.normal-pc.form-item-container"
-    },
-    {
         "title": "文本框",
         "namespace": "mybricks.normal-pc.form-text"
     },
     {
-        "title": "数字输入框",
-        "namespace": "mybricks.normal-pc.input-number"
+        "title": "下拉框",
+        "namespace": "mybricks.normal-pc.select"
     },
     {
         "title": "文本域",
         "namespace": "mybricks.normal-pc.input-textarea"
     },
+    {
+        "title": "数字输入框",
+        "namespace": "mybricks.normal-pc.input-number"
+    },
+
+    {
+        "title": "单选框",
+        "namespace": "mybricks.normal-pc.radio"
+    },
+    {
+        "title": "多选框",
+        "namespace": "mybricks.normal-pc.checkbox"
+    },
+
     {
         "title": "自动完成",
         "namespace": "mybricks.normal-pc.auto-complete"
@@ -35,18 +37,7 @@ export const originformItemList = [
         "title": "搜索框",
         "namespace": "mybricks.normal-pc.search"
     },
-    {
-        "title": "单选框",
-        "namespace": "mybricks.normal-pc.radio"
-    },
-    {
-        "title": "下拉框",
-        "namespace": "mybricks.normal-pc.select"
-    },
-    {
-        "title": "多选框",
-        "namespace": "mybricks.normal-pc.checkbox"
-    },
+
     {
         "title": "级联选择",
         "namespace": "mybricks.normal-pc.cascader"
@@ -118,5 +109,17 @@ export const originformItemList = [
     {
         "title": "富文本输入框",
         "namespace": "mybricks.normal-pc.input-richtext"
-    }
+    },
+    {
+        "title": "自定义内容项",
+        "namespace": "mybricks.normal-pc.form-addition-container"
+    },
+    {
+        "title": "动态表单项",
+        "namespace": "mybricks.normal-pc.form-list"
+    },
+    {
+        "title": "自定义表单项",
+        "namespace": "mybricks.normal-pc.form-item-container"
+    },
 ]

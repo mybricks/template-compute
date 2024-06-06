@@ -1,8 +1,8 @@
 {
-  "title": "编辑表单容器组件",
+  "title": "配置表单容器",
   "namespace": "mybricks.comlib-template-compute.editFormContainerCom",
   "version": "1.0.2",
-  "description": "编辑表单容器组件",
+  "description": "配置表单容器",
   "author": "MyBricks",
   "author_name": "MyBricks",
   "icon": "./icon.svg",
@@ -20,7 +20,11 @@
         "properties": {
           "data": {
             "type": "object",
-            "required": ["field", "label", "namespace"],
+            "required": [
+              "field",
+              "label",
+              "namespace"
+            ],
             "properties": {
               "field": {
                 "type": "string",
