@@ -1,3 +1,4 @@
+import omit from 'lodash/omit'
 export default function ({ env, data, inputs, outputs, onError }) {
 
   // TODO:
@@ -34,27 +35,28 @@ export default function ({ env, data, inputs, outputs, onError }) {
           // 给表单容器的插槽添加组件，同时返回当前组件的信息
           comItem = comForm.slots[0].appendChild({
             namespace: item.namespace || 'mybricks.normal-pc.form-text',
+            data: {... omit(item, ['namespace']), ...(item.disabled !== undefined ? { config: { disabled: item.disabled}} : {})}
           })
+
         } catch (error) {
-          console.log('comItem error', error)
         }
         return {
           ...comItem,
           id: comItem?.id,
           props: {
-            label: item.label,
-            name: item.field
+            // label: item.label,
+            // name: item.field,
+            disabled: item.disabled,
           }
         }
       })
       // 修改模板页面中的表单数据， TODO：是否追加到form items里面，还是直接替换拿不到添加
       comForm.data.items = comForm.data.items.map((formItem) => {
         const configItem = newItems.find((item) => item.id === formItem.id)
-
         return {
           ...formItem,
-          ...configItem?.props,
-        }
+          ...configItem?.data,
+        } 
       })
       outputs['finish']()
     }
