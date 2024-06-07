@@ -22,19 +22,19 @@
           "properties": {
             "title": {
               "type": "string",
-              "description": "标题"
+              "description": "列标题，必填"
             },
             "dataIndex": {
               "type": "string",
-              "description": "字段"
+              "description": "列字段，必填"
             },
             "width": {
               "type": "number",
-              "description": "组件namespace"
+              "description": "列宽度，可选"
             },
             "visible": {
               "type": "boolean",
-              "description": "是否显示"
+              "description": "是否显示，可选"
             }
           }
         }
