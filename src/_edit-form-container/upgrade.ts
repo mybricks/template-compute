@@ -9,17 +9,17 @@ export default function ({
   /**
    * v1.0.1 -> v1.0.2 修改schema结构
    */
-  if(data.enableArray === true) {
-    input.get('score').setSchema({
+  if (data.enableArray === true) {
+    input.get('store').setSchema({
       "type": 'object',
       "properties": {
         "data": {
-            "type": "array",
-            "items": formItemPropsSchema
+          "type": "array",
+          "items": formItemPropsSchema
         }
       }
     })
-  } else if(!data.enableArray) {
+  } else if (!data.enableArray) {
     input.get('store').setSchema({
       "type": 'object',
       "properties": {
